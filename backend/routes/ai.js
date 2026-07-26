@@ -3,8 +3,6 @@ const auth = require('../middleware/auth');
 const User = require('../models/User');
 const router = express.Router();
 
-// Plug in a Gemini or OpenAI key in .env. Falls back to a canned
-// response if no key is set, so the demo still works offline.
 async function callAI(prompt) {
   if (!process.env.OPENAI_API_KEY) {
     return '(Demo mode - no AI key set) Based on your spending, consider reducing discretionary expenses and increasing your 80C investments.';
