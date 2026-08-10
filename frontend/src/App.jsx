@@ -1,28 +1,31 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
-import TaxEstimator from './pages/TaxEstimator';
-import Chatbot from './pages/Chatbot';
-import ReportDownload from './pages/ReportDownload';
+﻿import { useState } from 'react';
+import Sidebar from './components/Sidebar.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 
-function PrivateRoute({ children }) {
-  const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/login" />;
+const DEMO_USER = {
+  name: 'Demo',
+  email: 'demo@finchain.ai',
+  avatarUrl: 'https://i.pravatar.cc/64?img=12',
+};
+
+function PlaceholderPage({ title }) {
+  return (
+    <div className="flex-1 min-w-0 flex items-center justify-center">
+      <div className="text-center text-slate-400">
+        <p className="text-lg font-medium text-slate-200">{title}</p>
+        <p className="text-sm mt-1">This page hasn't been built yet.</p>
+      </div>
+    </div>
+  );
 }
 
 export default function App() {
+  const [active, setActive] = useState('Dashboard');
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-        <Route path="/tax" element={<PrivateRoute><TaxEstimator /></PrivateRoute>} />
-        <Route path="/chat" element={<PrivateRoute><Chatbot /></PrivateRoute>} />
-        <Route path="/report" element={<PrivateRoute><ReportDownload /></PrivateRoute>} />
-        <Route path="*" element={<Navigate to="/login" />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="flex min-h-screen bg-base-bg text-slate-100">
+      <Sidebar active={active} onNavigate={setActive} user={DEMO_USER} />
+      {active === 'Dashboard' ? <Dashboard /> : <PlaceholderPage title={active} />}
+    </div>
   );
 }

@@ -1,52 +1,48 @@
-import { useEffect, useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
-import api from '../api';
+﻿import { Wallet, CreditCard, PiggyBank, Percent, HeartPulse, ShieldCheck } from 'lucide-react';
+import TargetCursor from '../components/TargetCursor.jsx';
+import Topbar from '../components/Topbar.jsx';
+import StatCard from '../components/StatCard.jsx';
+import IncomeExpenseChart from '../components/IncomeExpenseChart.jsx';
+import ExpenseDonut from '../components/ExpenseDonut.jsx';
 
-const COLORS = ['#3b82f6', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6'];
-
-// Mock data shown until the real API responds -- Kruthi can swap this
-// out once /api/dashboard is live.
-const mockData = {
-  totalCredit: 50000, totalDebit: 32000, balance: 18000,
-  spendingByCategory: { food: 8000, rent: 15000, travel: 4000, other: 5000 }
-};
+const today = new Date().toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
 export default function Dashboard() {
-  const [data, setData] = useState(mockData);
-
-  useEffect(() => {
-    api.get('/dashboard').then((res) => setData(res.data)).catch(() => {});
-  }, []);
-
-  const chartData = Object.entries(data.spendingByCategory || {}).map(([name, value]) => ({ name, value }));
-
   return (
-    <div className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
-      <div className="grid grid-cols-3 gap-4 mb-8">
-        <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500 text-sm">Income</p>
-          <p className="text-xl font-bold text-green-600">Rs.{data.totalCredit}</p>
+    <div className="flex-1 min-w-0">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+        cursorColor="#10b981"
+        cursorColorOnTarget="#B497CF"
+      />
+      <Topbar title="Dashboard" subtitle={today} />
+
+      <main className="p-8 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="cursor-target"><StatCard label="Total Income" value="₹1,25,000" icon={Wallet} accent="teal" trend="up" trendLabel="+12%" trendSuffix="vs last month" /></div>
+          <div className="cursor-target"><StatCard label="Total Expense" value="₹48,250" icon={CreditCard} accent="red" trend="down" trendLabel="-4%" trendSuffix="vs last month" /></div>
+          <div className="cursor-target"><StatCard label="Total Savings" value="₹76,750" icon={PiggyBank} accent="blue" trend="up" trendLabel="+21%" trendSuffix="vs last month" /></div>
         </div>
-        <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500 text-sm">Expenses</p>
-          <p className="text-xl font-bold text-red-600">Rs.{data.totalDebit}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="cursor-target"><StatCard label="Estimated Tax" value="₹18,200" icon={Percent} accent="gold" trend="flat" trendLabel="0%" trendSuffix="New Regime base" /></div>
+          <div className="cursor-target"><StatCard label="Financial Health" value="84 / 100" icon={HeartPulse} accent="purple" trend="up" trendLabel="+2 pts" trendSuffix="Grade: Excellent" /></div>
+          <div className="cursor-target"><StatCard label="Blockchain Status" value="Synchronized" icon={ShieldCheck} accent="cyan" trend="flat" trendSuffix="Secured Block #19,048,231" /></div>
         </div>
-        <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500 text-sm">Balance</p>
-          <p className="text-xl font-bold">Rs.{data.balance}</p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <IncomeExpenseChart />
+          <ExpenseDonut />
         </div>
-      </div>
-      <div className="bg-white shadow rounded-xl p-4" style={{ height: 300 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={chartData} dataKey="value" nameKey="name" outerRadius={100} label>
-              {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
+      </main>
     </div>
   );
 }

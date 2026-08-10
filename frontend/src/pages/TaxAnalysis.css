@@ -1,0 +1,873 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #02060d;
+  color: #e7edf5;
+}
+
+
+/* =====================================================
+   MAIN APP
+===================================================== */
+
+.finchain-app {
+  min-height: 100vh;
+  display: flex;
+  background: #02060d;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+
+  background: #03070f;
+
+  border-right: 1px solid #111923;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* BRAND */
+
+.brand {
+  height: 96px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 18px;
+
+  border-bottom: 1px solid #101722;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  color: #f1f5f9;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #06b6d4,
+      #00d49b
+    );
+
+  color: #062a2b;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.brand b {
+  color: #00d3a1;
+}
+
+
+/* NAVIGATION */
+
+.sidebar-nav {
+  padding: 18px 10px;
+  flex: 1;
+}
+
+.sidebar-item {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+
+  margin-bottom: 4px;
+
+  border-radius: 12px;
+
+  color: #9aa5b5;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background: #0b111a;
+  color: #e7edf5;
+}
+
+.sidebar-item.active {
+  background: #101722;
+  color: #00d5a3;
+}
+
+.sidebar-icon {
+  width: 28px;
+
+  font-size: 20px;
+
+  margin-right: 12px;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+/* USER */
+
+.sidebar-user {
+  height: 82px;
+
+  border-top: 1px solid #111923;
+
+  display: flex;
+  align-items: center;
+
+  padding: 12px 20px;
+}
+
+.avatar {
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a5b4fc,
+      #6366f1
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.avatar.small {
+  width: 38px;
+  height: 38px;
+
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+.user-info strong {
+  font-size: 14px;
+  color: #e7edf5;
+}
+
+.user-info span {
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #7e8998;
+}
+
+.logout {
+  color: #a4adba;
+  font-size: 21px;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+  flex: 1;
+
+  min-width: 0;
+
+  background: #02060d;
+}
+
+
+/* HEADER */
+
+.top-header {
+  height: 96px;
+
+  padding: 0 26px;
+
+  border-bottom: 1px solid #101722;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-header h1 {
+  margin: 0;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  color: #e7edf5;
+}
+
+.top-header p {
+  margin: 5px 0 0;
+
+  color: #778291;
+
+  font-size: 13px;
+}
+
+.profile-avatar {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #c4b5fd,
+      #818cf8
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page-content {
+  padding: 26px 24px;
+}
+
+.grid-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(550px, 1.7fr)
+    minmax(390px, 0.85fr);
+
+  gap: 20px;
+
+  max-width: 1450px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.tax-card,
+.benefits-card {
+  background: #050a12;
+
+  border: 1px solid #131d29;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+/* LEFT CARD */
+
+.tax-card {
+  padding: 30px 26px;
+
+  min-height: 690px;
+}
+
+
+/* RIGHT CARD */
+
+.benefits-card {
+  padding: 30px 26px;
+
+  min-height: 690px;
+}
+
+
+/* HEADINGS */
+
+.card-header h2,
+.benefits-card h2 {
+  margin: 0;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  color: #e5e9ef;
+}
+
+.card-header p {
+  margin: 9px 0 29px;
+
+  color: #818b99;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   SLIDERS
+===================================================== */
+
+.tax-slider {
+  margin-bottom: 25px;
+}
+
+.slider-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+}
+
+.slider-heading label {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #d9dee7;
+}
+
+.slider-heading strong {
+  font-size: 14px;
+
+  color: #00d5a3;
+
+  font-weight: 600;
+}
+
+
+/* RANGE */
+
+.range-wrapper {
+  position: relative;
+
+  height: 16px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.range-progress {
+  position: absolute;
+
+  left: 0;
+
+  height: 6px;
+
+  border-radius: 10px;
+
+  background: #00cf9d;
+
+  pointer-events: none;
+}
+
+.range-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 6px;
+
+  border-radius: 10px;
+
+  background: #161f2a;
+}
+
+.range-wrapper input {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  appearance: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.range-wrapper input::-webkit-slider-runnable-track {
+  height: 6px;
+
+  background: transparent;
+
+  border-radius: 10px;
+}
+
+.range-wrapper input::-webkit-slider-thumb {
+  appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  margin-top: -6px;
+
+  border-radius: 50%;
+
+  border: 3px solid #ffffff;
+
+  background: #ffffff;
+
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.range-wrapper input::-moz-range-track {
+  height: 6px;
+
+  background: transparent;
+
+  border-radius: 10px;
+}
+
+.range-wrapper input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  border: 3px solid white;
+
+  background: white;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.action-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.action-buttons button {
+  height: 40px;
+
+  border-radius: 10px;
+
+  padding: 0 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.calculate-btn {
+  border: none;
+
+  background: #00c992;
+
+  color: #03130f;
+}
+
+.calculate-btn:hover {
+  background: #00e0a5;
+
+  transform: translateY(-1px);
+}
+
+.pdf-btn {
+  background: #050a12;
+
+  border: 1px solid #18222e;
+
+  color: #d3dae3;
+}
+
+.pdf-btn:hover {
+  background: #0c131c;
+}
+
+
+/* =====================================================
+   SAVING BOX
+===================================================== */
+
+.benefits-card > h2 {
+  margin-bottom: 25px;
+}
+
+.saving-box {
+  padding: 25px 22px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(0, 211, 163, 0.25);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 120, 90, 0.23),
+      rgba(0, 60, 50, 0.20)
+    );
+
+  margin-bottom: 28px;
+}
+
+.saving-label {
+  display: block;
+
+  color: #00d5a3;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+.saving-box strong {
+  display: block;
+
+  color: #00d5a3;
+
+  font-size: 31px;
+
+  letter-spacing: 0.5px;
+}
+
+.saving-box p {
+  margin: 5px 0 0;
+
+  color: #7c8994;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   CHART
+===================================================== */
+
+.chart {
+  height: 215px;
+
+  display: flex;
+
+  margin-bottom: 25px;
+}
+
+.chart-y-labels {
+  width: 58px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding-bottom: 28px;
+
+  color: #7e8998;
+
+  font-size: 11px;
+
+  text-align: right;
+
+  padding-right: 8px;
+}
+
+.chart-area {
+  position: relative;
+
+  flex: 1;
+
+  border-bottom: 1px solid #56606d;
+
+  overflow: hidden;
+}
+
+.grid-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  border-top: 1px dashed #121b27;
+}
+
+.line1 {
+  top: 0;
+}
+
+.line2 {
+  top: 25%;
+}
+
+.line3 {
+  top: 50%;
+}
+
+.line4 {
+  top: 75%;
+}
+
+.line5 {
+  top: 100%;
+}
+
+.bars {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: flex-end;
+
+  padding: 10px 35px 0;
+}
+
+.bar-wrapper {
+  width: 38%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  align-items: center;
+}
+
+.bar {
+  width: 100%;
+
+  border-radius: 6px 6px 0 0;
+
+  min-height: 15px;
+}
+
+.old-bar {
+  background: #3b82f6;
+}
+
+.new-bar {
+  background: #f59e0b;
+}
+
+.bar-wrapper span {
+  position: absolute;
+
+  bottom: -25px;
+
+  color: #7f8b99;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   SUGGESTIONS
+===================================================== */
+
+.suggestions-title {
+  font-size: 12px;
+
+  color: #7e8998;
+
+  letter-spacing: 0.8px;
+
+  margin-bottom: 13px;
+}
+
+.suggestion {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 14px;
+
+  border: 1px solid #17212d;
+
+  border-radius: 14px;
+
+  margin-bottom: 12px;
+
+  background: #050a12;
+}
+
+.suggestion.success {
+  border-color: rgba(0, 210, 160, 0.22);
+
+  background:
+    rgba(0, 80, 65, 0.15);
+}
+
+.suggestion-icon {
+  width: 20px;
+  height: 20px;
+
+  min-width: 20px;
+
+  border-radius: 50%;
+
+  border: 2px solid #00d3a0;
+
+  color: #00d3a0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 11px;
+
+  margin-top: 2px;
+}
+
+.suggestion-icon.warning {
+  border-color: #aeb7c3;
+
+  color: #d6dbe1;
+}
+
+.suggestion h3 {
+  margin: 0 0 5px;
+
+  font-size: 14px;
+
+  color: #dbe1e8;
+}
+
+.suggestion p {
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+
+  color: #818c99;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tax-card,
+  .benefits-card {
+    min-height: auto;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .page-content {
+    padding: 15px;
+  }
+
+  .top-header {
+    padding: 0 18px;
+  }
+
+  .tax-card,
+  .benefits-card {
+    padding: 20px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons button {
+    justify-content: center;
+  }
+}
+
