@@ -4,8 +4,9 @@ import Logo from './Logo';
 const NAV = [
   { to: '/dashboard', label: 'Dashboard', hint: '01' },
   { to: '/tax', label: 'Tax Estimator', hint: '02' },
-  { to: '/chat', label: 'Chatbot', hint: '03' },
-  { to: '/report', label: 'Reports', hint: '04' },
+  { to: '/itr', label: 'ITR Filing', hint: '03' },
+  { to: '/chat', label: 'Chatbot', hint: '04' },
+  { to: '/report', label: 'Reports', hint: '05' },
 ];
 
 export default function Shell() {

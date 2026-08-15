@@ -1,3 +1,15 @@
+:root {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --primary: #7c3aed;
+  --primary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #cbd5e1;
+  --border: #334155;
+  --input: #334155;
+  --ring: #a78bfa;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +22,9 @@ body,
 
 body {
   @apply bg-base-bg text-slate-100 font-sans;
+  background:
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.16), transparent 30%),
+    linear-gradient(180deg, #0b1220 0%, #111827 100%);
 }
 
 ::-webkit-scrollbar {

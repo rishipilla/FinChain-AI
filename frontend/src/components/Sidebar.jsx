@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { label: 'Dashboard', icon: LayoutDashboard },
   { label: 'Transactions', icon: CreditCard },
   { label: 'Tax Analysis', icon: PieChart },
+  { label: 'ITR Filing', icon: FileDown },
   { label: 'AI Assistant', icon: Bot },
   { label: 'AI Insights', icon: Lightbulb },
   { label: 'Upload Statement', icon: UploadCloud },

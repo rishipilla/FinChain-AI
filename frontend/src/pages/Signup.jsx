@@ -82,11 +82,11 @@ export default function Signup() {
       }
 
       if (data.token) {
-        localStorage.setItem('finchain_token', data.token);
+        localStorage.setItem('token', data.token);
       }
 
       if (data.user) {
-        localStorage.setItem('finchain_user', JSON.stringify(data.user));
+        localStorage.setItem('user', JSON.stringify(data.user));
       }
 
       navigate('/dashboard');

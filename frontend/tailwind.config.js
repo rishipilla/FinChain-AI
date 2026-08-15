@@ -1,9 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
+        background: '#0b1220',
+        foreground: '#e2e8f0',
+        primary: {
+          DEFAULT: '#7c3aed',
+          foreground: '#f8fafc',
+        },
+        secondary: {
+          DEFAULT: '#1d4ed8',
+          foreground: '#eff6ff',
+        },
+        muted: {
+          DEFAULT: '#1e293b',
+          foreground: '#cbd5e1',
+        },
+        accent: {
+          DEFAULT: '#1d4ed8',
+          foreground: '#eff6ff',
+        },
+        destructive: {
+          DEFAULT: '#ef4444',
+          foreground: '#fef2f2',
+        },
+        border: '#334155',
+        input: '#334155',
+        ring: '#a78bfa',
         base: {
           bg: '#0b1220',
           panel: '#101a2c',

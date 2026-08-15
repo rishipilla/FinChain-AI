@@ -25,28 +25,32 @@ export default function StatCard({
 
   return (
     <div
-      className={`bg-base-card border border-base-border ${a.border} border-l-4 rounded-xl p-5 shadow-card`}
+      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_18px_40px_-28px_rgba(56,189,248,0.8)] backdrop-blur-xl ${a.border} border-l-4`}
     >
-      <div className="flex items-start justify-between">
-        <span className="text-xs tracking-wider text-slate-400 font-medium uppercase">
-          {label}
-        </span>
-        {Icon && (
-          <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${a.iconBg}`}>
-            <Icon size={16} className={a.iconText} />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-80" />
+
+      <div className="relative">
+        <div className="flex items-start justify-between">
+          <span className="text-[10px] uppercase tracking-[0.24em] text-slate-400 font-medium">
+            {label}
+          </span>
+          {Icon && (
+            <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${a.iconBg}`}>
+              <Icon size={16} className={a.iconText} />
+            </div>
+          )}
+        </div>
+
+        <div className="mt-5 text-[28px] font-semibold leading-none tracking-tight text-white">{value}</div>
+
+        {(trendLabel || trendSuffix) && (
+          <div className="mt-3 flex items-center gap-1.5 text-[12px]">
+            <TrendIcon size={14} className={trendColor} />
+            {trendLabel && <span className={`font-medium ${trendColor}`}>{trendLabel}</span>}
+            {trendSuffix && <span className="text-slate-400">{trendSuffix}</span>}
           </div>
         )}
       </div>
-
-      <div className="mt-4 text-[26px] font-semibold leading-none">{value}</div>
-
-      {(trendLabel || trendSuffix) && (
-        <div className="mt-3 flex items-center gap-1 text-[13px]">
-          <TrendIcon size={14} className={trendColor} />
-          {trendLabel && <span className={`font-medium ${trendColor}`}>{trendLabel}</span>}
-          {trendSuffix && <span className="text-slate-400">{trendSuffix}</span>}
-        </div>
-      )}
     </div>
   );
 }
